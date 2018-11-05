@@ -18,14 +18,14 @@ class DishDetail extends Component {
             const comment = dish.comments.map((text) => {
                 const date = text.date.split('T')[0].split("-").reverse().join("-").split("-");
                 return(
-                    <div>
+                    <li>
                         <p>
                             {text.comment}
                         </p>
                         <p>
                            -- {text.author} , {month[parseInt(date[1])-1]} {date[0]}, {date[2]}
                         </p>
-                    </div>
+                    </li>
                 );
             });
 
@@ -34,7 +34,9 @@ class DishDetail extends Component {
                     <h4>
                         Comment
                     </h4>
-                    {comment}
+                    <ul className='list-unstyled'>
+                        {comment}
+                    </ul>
                 </div>
             )
         }
